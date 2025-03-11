@@ -46,3 +46,12 @@ DEBUG_TEST=true
 ```
 
 Single line comments and inline comments are both supported.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Some things that would be nice to have:
+- [ ] Support for multiline values
+- [ ] Tests to ensure parsing is correct
+- [ ] Ensure that there are no edge cases that are not handled
+
