@@ -74,3 +74,29 @@ func SetEnvironmentVars(envVars map[string]string, overload bool) {
 		}
 	}
 }
+
+// Read takes in any number of env files. Defaults to .env
+// It will parse the env files and return them in a map[string]string.
+func Read(filenames ...string) (map[string]string, error) {
+    environmentVariables := make(map[string]string)
+	var err error
+
+	// Defaults to .env file
+	if len(filenames) == 0 {
+		environmentVariables, err = parsefile(".env")
+
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	for _, filename := range filenames {
+		environmentVariables, err = parsefile(filename)
+
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return environmentVariables, nil
+}
